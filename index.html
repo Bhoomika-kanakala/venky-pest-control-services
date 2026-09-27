@@ -181,19 +181,104 @@
 
 <section id="contact">
 
-            <h2>Book Pest Control Service</h2>
+    <h2>Book Pest Control Service</h2>
 
-            <p>Contact us today for pest control enquiries.</p>
+    <p>
+        Fill in your details and contact us on WhatsApp.
+    </p>
 
-            <a href="tel:+918688287716" class="btn">
-                Call Now
-            </a>
+    <form id="bookingForm">
 
-            <a href="https://wa.me/918688287716?text=Hello%2C%20I%20need%20pest%20control%20service." class="btn whatsapp">
-    WhatsApp Us
-</a>
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name"
+            required
+        >
 
-        </section>
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="10-digit Mobile Number"
+            maxlength="10"
+            required
+        >
+
+        <select id="service" required>
+
+            <option value="">Select Pest Problem</option>
+
+            <option value="Cockroach Control">
+                Cockroach Control
+            </option>
+
+            <option value="Rat Control">
+                Rat Control
+            </option>
+
+            <option value="Bed Bug Control">
+                Bed Bug Control
+            </option>
+
+            <option value="Mosquito Control">
+                Mosquito Control
+            </option>
+
+            <option value="Ant Control">
+                Ant Control
+            </option>
+
+            <option value="Termite Control">
+                Termite Control
+            </option>
+
+            <option value="Other Pest Problem">
+                Other Pest Problem
+            </option>
+
+        </select>
+
+
+        <input
+            type="text"
+            id="area"
+            placeholder="Your Area in Hyderabad"
+            required
+        >
+
+
+        <textarea
+            id="customerMessage"
+            placeholder="Describe your pest problem (optional)"
+            rows="5"
+        ></textarea>
+
+
+        <button type="submit" class="btn">
+            Send Enquiry on WhatsApp
+        </button>
+
+    </form>
+
+
+    <p>
+        Or contact us directly:
+    </p>
+
+
+    <a href="tel:+918688287716" class="btn">
+        Call Now
+    </a>
+
+
+    <a
+        href="https://wa.me/918688287716?text=Hello%2C%20I%20need%20pest%20control%20service."
+        class="btn whatsapp"
+    >
+        WhatsApp Us
+    </a>
+
+</section>
 
     </main>
 
@@ -204,6 +289,9 @@
         </p>
 
     </footer>
+    
+
+    <script src="script.js"></script>
 
 </body>
 
