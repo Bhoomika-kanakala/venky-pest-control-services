@@ -206,3 +206,55 @@ html {
 section {
     scroll-margin-top: 100px;
 }
+
+/* =========================
+   BOOKING FORM
+========================= */
+
+#bookingForm {
+    max-width: 600px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+#bookingForm input,
+#bookingForm select,
+#bookingForm textarea {
+
+    width: 100%;
+    padding: 14px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+}
+
+
+#bookingForm input:focus,
+#bookingForm select:focus,
+#bookingForm textarea:focus {
+
+    outline: none;
+
+    border-color: #0b6b3a;
+}
+
+
+#bookingForm textarea {
+
+    resize: vertical;
+}
+
+
+#bookingForm button {
+
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
