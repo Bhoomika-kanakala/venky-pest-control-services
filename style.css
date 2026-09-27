@@ -258,3 +258,32 @@ section {
     cursor: pointer;
     font-size: 16px;
 }
+
+/* =========================
+   OUR RECENT WORK
+========================= */
+
+.work-card {
+    max-width: 700px;
+    margin: 30px auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.work-card video {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.work-card h3 {
+    color: #0b6b3a;
+    margin-bottom: 10px;
+}
+
+.work-card p {
+    margin-bottom: 15px;
+}
