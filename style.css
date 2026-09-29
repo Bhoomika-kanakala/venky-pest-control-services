@@ -1,8 +1,22 @@
+/* =========================================================
+   VENKY PEST CONTROL - COMPLETE WEBSITE CSS
+========================================================= */
+
+
+/* =========================================================
+   1. BASIC RESET
+========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+/* =========================================================
+   2. BODY
+========================================================= */
 
 body {
     font-family: Arial, sans-serif;
@@ -11,13 +25,20 @@ body {
     background-color: #f5f7f6;
 }
 
+
+/* =========================================================
+   3. HEADER
+========================================================= */
+
 header {
     background-color: #0b6b3a;
     color: white;
     padding: 20px 8%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -26,6 +47,11 @@ header {
 header h1 {
     font-size: 24px;
 }
+
+
+/* =========================================================
+   4. NAVIGATION
+========================================================= */
 
 nav a {
     color: white;
@@ -38,15 +64,32 @@ nav a:hover {
     text-decoration: underline;
 }
 
+
+/* =========================================================
+   5. HERO SECTION
+========================================================= */
+
 .hero {
     min-height: 500px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     text-align: center;
+
     padding: 50px 20px;
+
     background-color: #dff5e8;
+}
+
+.hero-small {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0b6b3a;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .hero h2 {
@@ -61,14 +104,38 @@ nav a:hover {
     margin-bottom: 30px;
 }
 
+
+/* =========================================================
+   6. HERO BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   7. GENERAL BUTTON
+========================================================= */
+
 .btn {
     display: inline-block;
+
     background-color: #0b6b3a;
     color: white;
+
     padding: 14px 25px;
+
     text-decoration: none;
+
     border-radius: 6px;
+
     margin: 8px;
+
     font-weight: bold;
 }
 
@@ -76,9 +143,28 @@ nav a:hover {
     background-color: #064b29;
 }
 
+
+/* =========================================================
+   8. WHATSAPP BUTTON
+========================================================= */
+
+.whatsapp {
+    background-color: #168c46;
+}
+
+.whatsapp:hover {
+    background-color: #0f7137;
+}
+
+
+/* =========================================================
+   9. GENERAL SECTIONS
+========================================================= */
+
 section {
     padding: 70px 8%;
     text-align: center;
+    scroll-margin-top: 100px;
 }
 
 section h2 {
@@ -87,16 +173,29 @@ section h2 {
     color: #075c32;
 }
 
+
+/* =========================================================
+   10. SERVICES / ABOUT / AREAS GRID
+========================================================= */
+
 .service-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
 }
 
+
+/* =========================================================
+   11. SERVICE CARDS
+========================================================= */
+
 .service-card {
     background-color: white;
+
     padding: 30px;
+
     border-radius: 10px;
+
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -105,30 +204,260 @@ section h2 {
     color: #0b6b3a;
 }
 
+
+/* =========================================================
+   12. ABOUT SECTION
+========================================================= */
+
 #about {
     background-color: white;
 }
+
+
+/* =========================================================
+   13. CONTACT SECTION
+========================================================= */
 
 #contact {
     background-color: #dff5e8;
 }
 
-.whatsapp {
-    background-color: #168c46;
+
+/* =========================================================
+   14. BOOKING FORM
+========================================================= */
+
+#bookingForm {
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
 }
+
+
+/* =========================================================
+   15. BOOKING FORM INPUTS
+========================================================= */
+
+#bookingForm input,
+#bookingForm select,
+#bookingForm textarea {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   16. BOOKING FORM FOCUS
+========================================================= */
+
+#bookingForm input:focus,
+#bookingForm select:focus,
+#bookingForm textarea:focus {
+    outline: none;
+
+    border-color: #0b6b3a;
+}
+
+
+/* =========================================================
+   17. TEXTAREA
+========================================================= */
+
+#bookingForm textarea {
+    resize: vertical;
+}
+
+
+/* =========================================================
+   18. BOOKING FORM BUTTON
+========================================================= */
+
+#bookingForm button {
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   19. OUR RECENT PEST CONTROL WORK
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   Your HTML has the 12 .work-card elements directly
+   inside #work.
+
+   Therefore #work itself is used as the grid.
+
+   Desktop:
+   4 videos per row
+
+   Tablet:
+   2 videos per row
+
+   Mobile:
+   1 video per row
+*/
+
+#work {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 25px;
+
+    text-align: center;
+}
+
+
+/*
+   The heading and description should occupy
+   the entire first row.
+*/
+
+#work > h2 {
+    grid-column: 1 / -1;
+
+    margin-bottom: 0;
+}
+
+#work > p {
+    grid-column: 1 / -1;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   20. RECENT WORK CARDS
+========================================================= */
+
+#work .work-card {
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+}
+
+
+/* =========================================================
+   21. RECENT WORK VIDEOS
+========================================================= */
+
+#work .work-card video {
+    width: 100%;
+
+    height: 200px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin-bottom: 20px;
+
+    background-color: #000;
+}
+
+
+/* =========================================================
+   22. RECENT WORK TITLES
+========================================================= */
+
+#work .work-card h3 {
+    color: #0b6b3a;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   23. RECENT WORK DESCRIPTION
+========================================================= */
+
+#work .work-card p {
+    margin-bottom: 15px;
+
+    flex-grow: 1;
+}
+
+
+/*
+   Keep the button at the bottom of each card.
+*/
+
+#work .work-card .btn {
+    align-self: center;
+}
+
+
+/* =========================================================
+   24. FOOTER
+========================================================= */
 
 footer {
     background-color: #073d23;
+
     color: white;
+
     text-align: center;
+
     padding: 25px;
 }
 
+
+/* =========================================================
+   25. SMOOTH SCROLL
+========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   26. TABLET
+   769px and below
+========================================================= */
+
 @media (max-width: 768px) {
+
+    /* HEADER */
 
     header {
         flex-direction: column;
+
         gap: 15px;
+
         text-align: center;
     }
 
@@ -136,10 +465,16 @@ footer {
         font-size: 20px;
     }
 
+
+    /* NAVIGATION */
+
     nav {
         display: flex;
+
         flex-wrap: wrap;
+
         justify-content: center;
+
         gap: 5px;
     }
 
@@ -147,8 +482,12 @@ footer {
         margin: 5px;
     }
 
+
+    /* HERO */
+
     .hero {
         min-height: 450px;
+
         padding: 40px 20px;
     }
 
@@ -160,19 +499,30 @@ footer {
         font-size: 18px;
     }
 
+
+    /* HERO BUTTONS */
+
     .hero-buttons {
         flex-direction: column;
+
         width: 100%;
     }
 
     .hero-buttons .btn {
         width: 90%;
+
         max-width: 300px;
     }
+
+
+    /* SERVICES */
 
     .service-container {
         grid-template-columns: 1fr;
     }
+
+
+    /* GENERAL SECTION */
 
     section {
         padding: 50px 20px;
@@ -181,109 +531,122 @@ footer {
     section h2 {
         font-size: 28px;
     }
-}
 
-.hero-small {
-    font-size: 16px;
-    font-weight: bold;
-    color: #0b6b3a;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
+    /* =====================================================
+       RECENT WORK - TABLET
+    ===================================================== */
 
-html {
-    scroll-behavior: smooth;
-}
+    #work {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
-section {
-    scroll-margin-top: 100px;
-}
+        gap: 20px;
+    }
 
-/* =========================
-   BOOKING FORM
-========================= */
+    #work .work-card {
+        width: auto;
 
-#bookingForm {
-    max-width: 600px;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+        margin: 0;
+
+        padding: 15px;
+    }
+
+    #work .work-card video {
+        height: 200px;
+    }
+
 }
 
 
-#bookingForm input,
-#bookingForm select,
-#bookingForm textarea {
+/* =========================================================
+   27. SMALL MOBILE
+   480px and below
+========================================================= */
 
-    width: 100%;
-    padding: 14px;
+@media (max-width: 480px) {
 
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    /* HEADER */
 
-    font-size: 16px;
+    header h1 {
+        font-size: 18px;
+    }
 
-    font-family: Arial, sans-serif;
+
+    /* HERO */
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    /* GENERAL SECTION */
+
+    section {
+        padding: 45px 15px;
+    }
+
+    section h2 {
+        font-size: 25px;
+    }
+
+
+    /* =====================================================
+       RECENT WORK - MOBILE
+    ===================================================== */
+
+    #work {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    #work .work-card {
+        width: 100%;
+
+        margin: 0;
+
+        padding: 15px;
+    }
+
+    #work .work-card video {
+        height: auto;
+
+        max-height: 300px;
+    }
+
+    #work .work-card h3 {
+        font-size: 18px;
+    }
+
 }
 
 
-#bookingForm input:focus,
-#bookingForm select:focus,
-#bookingForm textarea:focus {
+/* =========================================================
+   28. VERY SMALL PHONES
+========================================================= */
 
-    outline: none;
+@media (max-width: 360px) {
 
-    border-color: #0b6b3a;
-}
+    header h1 {
+        font-size: 16px;
+    }
 
+    nav a {
+        font-size: 14px;
+    }
 
-#bookingForm textarea {
+    .hero h2 {
+        font-size: 24px;
+    }
 
-    resize: vertical;
-}
+    .btn {
+        padding: 12px 18px;
 
+        font-size: 14px;
+    }
 
-#bookingForm button {
-
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* =========================
-   OUR RECENT WORK
-========================= */
-
-.work-card {
-    max-width: 700px;
-    margin: 30px auto;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-}
-
-.work-card video {
-    width: 100%;
-    display: block;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.work-card h3 {
-    color: #0b6b3a;
-    margin-bottom: 10px;
-}
-
-.work-card p {
-    margin-bottom: 15px;
 }
