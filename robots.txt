@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bhoomika-kanakala.github.io/venky-pest-control-services/sitemap.xml
