@@ -296,99 +296,158 @@ section h2 {
 
 
 /* =========================================================
-   19. OUR RECENT PEST CONTROL WORK
+   19. 3D OUR RECENT WORK CAROUSEL
 ========================================================= */
 
-/*
-   IMPORTANT:
-
-   Your HTML has the 12 .work-card elements directly
-   inside #work.
-
-   Therefore #work itself is used as the grid.
-
-   Desktop:
-   4 videos per row
-
-   Tablet:
-   2 videos per row
-
-   Mobile:
-   1 video per row
-*/
-
 #work {
-    display: grid;
-
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-
-    gap: 25px;
-
+    background-color: #f5f7f6;
     text-align: center;
+    overflow: hidden;
 }
 
-
-/*
-   The heading and description should occupy
-   the entire first row.
-*/
-
 #work > h2 {
-    grid-column: 1 / -1;
-
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 #work > p {
-    grid-column: 1 / -1;
-
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 
 /* =========================================================
-   20. RECENT WORK CARDS
+   CAROUSEL MAIN CONTAINER
+========================================================= */
+
+.carousel-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   CAROUSEL VIEWPORT
+========================================================= */
+
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+
+    position: relative;
+
+    padding: 40px 0;
+}
+
+
+/* =========================================================
+   CAROUSEL TRACK
+========================================================= */
+
+.carousel-track {
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 25px;
+
+    transition: transform 0.7s ease;
+
+    will-change: transform;
+}
+
+
+/* =========================================================
+   WORK CARD
 ========================================================= */
 
 #work .work-card {
+    flex: 0 0 calc(25% - 19px);
+
     background-color: white;
 
     padding: 20px;
 
-    border-radius: 10px;
+    border-radius: 15px;
 
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
 
     display: flex;
     flex-direction: column;
 
-    height: 100%;
+    min-height: 470px;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+    position: relative;
+
+    transform-style: preserve-3d;
 }
 
 
 /* =========================================================
-   21. RECENT WORK VIDEOS
+   HOVER EFFECT
+========================================================= */
+
+#work .work-card:hover {
+    transform:
+        translateY(-15px)
+        rotateX(3deg)
+        rotateY(-3deg)
+        scale(1.03);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================================
+   VIDEO
 ========================================================= */
 
 #work .work-card video {
     width: 100%;
 
-    height: 200px;
-
-    display: block;
+    height: 210px;
 
     object-fit: cover;
 
-    border-radius: 8px;
+    display: block;
+
+    border-radius: 10px;
 
     margin-bottom: 20px;
 
     background-color: #000;
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease;
 }
 
 
 /* =========================================================
-   22. RECENT WORK TITLES
+   VIDEO HOVER
+========================================================= */
+
+#work .work-card:hover video {
+    transform: translateZ(20px) scale(1.02);
+
+    filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   WORK TITLE
 ========================================================= */
 
 #work .work-card h3 {
@@ -396,27 +455,223 @@ section h2 {
 
     margin-bottom: 10px;
 
-    font-size: 20px;
+    font-size: 19px;
 }
 
 
 /* =========================================================
-   23. RECENT WORK DESCRIPTION
+   WORK DESCRIPTION
 ========================================================= */
 
 #work .work-card p {
     margin-bottom: 15px;
 
     flex-grow: 1;
+
+    font-size: 15px;
 }
 
 
-/*
-   Keep the button at the bottom of each card.
-*/
+/* =========================================================
+   WORK BUTTON
+========================================================= */
 
 #work .work-card .btn {
     align-self: center;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+#work .work-card .btn:hover {
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow:
+        0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT BUTTONS
+========================================================= */
+
+.carousel-btn {
+    width: 50px;
+
+    height: 50px;
+
+    min-width: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #0b6b3a;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   ARROW HOVER
+========================================================= */
+
+.carousel-btn:hover {
+    background-color: #064b29;
+
+    transform: scale(1.12);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================================================
+   CAROUSEL DOTS
+========================================================= */
+
+.carousel-dots {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+
+.carousel-dot {
+    width: 10px;
+
+    height: 10px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background-color: #b7c8bf;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+.carousel-dot.active {
+    background-color: #0b6b3a;
+
+    transform: scale(1.4);
+}
+
+
+/* =========================================================
+   3D DEPTH
+========================================================= */
+
+.carousel-track {
+    perspective: 1200px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    #work .work-card {
+        flex: 0 0 calc(50% - 13px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .carousel-container {
+        gap: 5px;
+    }
+
+    .carousel-viewport {
+        padding: 25px 5px;
+    }
+
+    .carousel-track {
+        gap: 15px;
+    }
+
+    #work .work-card {
+        flex: 0 0 100%;
+
+        min-height: 450px;
+
+        padding: 15px;
+    }
+
+    #work .work-card video {
+        height: 220px;
+    }
+
+    .carousel-btn {
+        width: 42px;
+
+        height: 42px;
+
+        min-width: 42px;
+
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .carousel-btn {
+        width: 38px;
+
+        height: 38px;
+
+        min-width: 38px;
+
+        font-size: 20px;
+    }
+
+    #work .work-card video {
+        height: 200px;
+    }
+
 }
 
 
