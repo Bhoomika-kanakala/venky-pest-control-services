@@ -75,3 +75,320 @@ bookingForm.addEventListener("submit", function(event) {
     bookingForm.reset();
 
 });
+
+// =========================================================
+// 3D VIDEO CAROUSEL
+// =========================================================
+
+
+const carouselTrack = document.querySelector(".carousel-track");
+const carouselCards = document.querySelectorAll(".carousel-track .work-card");
+
+const previousButton = document.querySelector(".prev-btn");
+const nextButton = document.querySelector(".next-btn");
+
+const carouselDots = document.querySelector(".carousel-dots");
+
+
+let currentSlide = 0;
+
+let cardsPerView = 4;
+
+let totalSlides = 0;
+
+
+// =========================================================
+// FIND HOW MANY CARDS SHOULD BE VISIBLE
+// =========================================================
+
+function getCardsPerView() {
+
+    if (window.innerWidth <= 600) {
+
+        return 1;
+
+    }
+
+    if (window.innerWidth <= 1000) {
+
+        return 2;
+
+    }
+
+    return 4;
+}
+
+
+// =========================================================
+// UPDATE CARDS PER VIEW
+// =========================================================
+
+function updateCarouselSettings() {
+
+    cardsPerView = getCardsPerView();
+
+    totalSlides =
+        Math.max(
+            0,
+            carouselCards.length - cardsPerView
+        );
+
+    if (currentSlide > totalSlides) {
+
+        currentSlide = totalSlides;
+
+    }
+
+    createDots();
+
+    moveCarousel();
+
+}
+
+
+// =========================================================
+// MOVE CAROUSEL
+// =========================================================
+
+function moveCarousel() {
+
+    if (!carouselCards.length) {
+
+        return;
+
+    }
+
+
+    const cardWidth =
+        carouselCards[0].offsetWidth;
+
+
+    const gap =
+        parseFloat(
+            getComputedStyle(carouselTrack).gap
+        ) || 0;
+
+
+    const moveAmount =
+        currentSlide * (cardWidth + gap);
+
+
+    carouselTrack.style.transform =
+        `translateX(-${moveAmount}px)`;
+
+
+    updateActiveDot();
+
+}
+
+
+// =========================================================
+// NEXT BUTTON
+// =========================================================
+
+function nextSlide() {
+
+    if (currentSlide < totalSlides) {
+
+        currentSlide++;
+
+    } else {
+
+        currentSlide = 0;
+
+    }
+
+    moveCarousel();
+
+}
+
+
+// =========================================================
+// PREVIOUS BUTTON
+// =========================================================
+
+function previousSlide() {
+
+    if (currentSlide > 0) {
+
+        currentSlide--;
+
+    } else {
+
+        currentSlide = totalSlides;
+
+    }
+
+    moveCarousel();
+
+}
+
+
+// =========================================================
+// BUTTON EVENTS
+// =========================================================
+
+nextButton.addEventListener(
+    "click",
+    nextSlide
+);
+
+
+previousButton.addEventListener(
+    "click",
+    previousSlide
+);
+
+
+// =========================================================
+// CREATE DOTS
+// =========================================================
+
+function createDots() {
+
+    carouselDots.innerHTML = "";
+
+
+    const numberOfDots =
+        totalSlides + 1;
+
+
+    for (
+        let i = 0;
+        i < numberOfDots;
+        i++
+    ) {
+
+        const dot =
+            document.createElement("button");
+
+
+        dot.classList.add("carousel-dot");
+
+
+        dot.type = "button";
+
+
+        dot.setAttribute(
+            "aria-label",
+            "Go to slide " + (i + 1)
+        );
+
+
+        dot.addEventListener(
+            "click",
+            function() {
+
+                currentSlide = i;
+
+                moveCarousel();
+
+            }
+        );
+
+
+        carouselDots.appendChild(dot);
+
+    }
+
+
+    updateActiveDot();
+
+}
+
+
+// =========================================================
+// ACTIVE DOT
+// =========================================================
+
+function updateActiveDot() {
+
+    const dots =
+        document.querySelectorAll(
+            ".carousel-dot"
+        );
+
+
+    dots.forEach(
+        function(dot, index) {
+
+            if (index === currentSlide) {
+
+                dot.classList.add("active");
+
+            } else {
+
+                dot.classList.remove("active");
+
+            }
+
+        }
+    );
+
+}
+
+
+// =========================================================
+// AUTOMATIC SLIDE
+// =========================================================
+
+let autoSlide =
+    setInterval(
+        nextSlide,
+        5000
+    );
+
+
+// =========================================================
+// STOP AUTO SLIDE WHEN MOUSE IS OVER CAROUSEL
+// =========================================================
+
+const carouselContainer =
+    document.querySelector(
+        ".carousel-container"
+    );
+
+
+carouselContainer.addEventListener(
+    "mouseenter",
+    function() {
+
+        clearInterval(autoSlide);
+
+    }
+);
+
+
+carouselContainer.addEventListener(
+    "mouseleave",
+    function() {
+
+        autoSlide =
+            setInterval(
+                nextSlide,
+                5000
+            );
+
+    }
+);
+
+
+// =========================================================
+// RESPONSIVE RESIZE
+// =========================================================
+
+window.addEventListener(
+    "resize",
+    function() {
+
+        updateCarouselSettings();
+
+    }
+);
+
+
+// =========================================================
+// START CAROUSEL
+// =========================================================
+
+updateCarouselSettings();
